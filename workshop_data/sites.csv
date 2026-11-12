@@ -1,0 +1,7 @@
+site_id,site_name,country,habitat,elevation_m,lat,lon
+S01,Altai Mountains,Mongolia,mountain steppe,2600,46.5,91.8
+S02,Tost Mountains,Mongolia,mountain steppe,2000,43.1,100.3
+S03,Khao Yai,Thailand,tropical forest,800,14.4,101.4
+S04,Namdapha,India,tropical forest,600,27.5,96.4
+S05,Sumava,Czechia,temperate forest,900,49,13.5
+S06,Land of the Leopard,Russia,temperate forest,400,43.2,131.5
