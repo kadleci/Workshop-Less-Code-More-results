@@ -1,0 +1,143 @@
+---
+title: "Less code, more results"
+subtitle: "A modern workflow in R, from messy data to interactive plots"
+author: "Ivo Kadlec and Nass Benneth"
+date: "2026-11-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+# Code is shown, but not run when knitting
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+**Workshop at Kostelecké inspirování 2026** · 5 hours
+**Wednesday 25 November · 14:00 to 19:00 · The Grand Hall**
+
+**Your own laptop is required.**
+
+---
+
+```{r}
+raw %>%
+  clean_names() %>%
+  filter(!is.na(weight_kg)) %>%
+  ggplot(aes(body_length_cm, weight_kg)) +
+  geom_point()
+
+# five lines instead of fifty
+```
+
+Is your script dozens of lines that repeat the same thing? Not sure what a pipeline is, or how `mutate()` and `map()` work? After this workshop, that is in the past.
+
+We work with one dataset the whole day: messy capture records of big cats, from first import to finished plots.
+
+## What you will learn
+
+1. Tidyverse and how pipelines work
+2. Importing and cleaning data, NA values and outliers
+3. Transforming data: `filter()`, `mutate()`, `summarise()`, joins
+4. Visualisation with `ggplot2` and facets, with a short introduction to interactive plots in `plotly`
+5. Iteration with loops and without: `for()`, `lapply()` `map()` from `purrr`
+6. Troubleshooting and tips for everyday work
+
+## Who it is for
+
+Students and researchers who already work in RStudio. No need to write your own functions, just basic familiarity with R and the motivation to learn something new.
+
+Stuck on your own data? Let us know in advance at [kadleci@fzp.czu.cz](mailto:kadleci@fzp.czu.cz), and if it does not fit in the workshop, we will look at it over a glass of good wine in the evening!
+
+---
+
+## Before the workshop
+
+Please bring your own laptop and prepare it **before** the workshop. Installing everything on site takes a lot of time and the Wi-Fi may be slow.
+
+### 1. Install the software
+
+| Software | Version | Download |
+|---|---|---|
+| R | 4.5.0 or newer | <https://cran.r-project.org/> |
+| RStudio Desktop | latest | <https://posit.co/download/rstudio-desktop/> |
+| Rtools (Windows only) | matching your R version | <https://cran.r-project.org/bin/windows/Rtools/> |
+
+Already have R? Check your version in the RStudio console:
+
+```{r}
+R.version.string
+```
+
+### 2. Install the packages
+
+Run this once in the RStudio console:
+
+```{r}
+install.packages(c(
+  "tidyverse",   # dplyr, tidyr, readr, stringr, ggplot2, purrr, lubridate
+  "janitor",     # clean_names()
+  "writexl",     # export to Excel
+  "here",        # file paths in projects
+  "plotly",      # interactive plots
+  "htmlwidgets", # save interactive plots as HTML
+  "pkgbuild"     # check Rtools on Windows
+))
+```
+
+### 3. Test that everything works
+
+Copy the whole block into the console and run it:
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(plotly)
+
+# Versions
+R.version.string
+packageVersion("tidyverse")
+
+# Windows only: is Rtools installed?
+if (.Platform$OS.type == "windows") pkgbuild::has_build_tools(debug = TRUE)
+
+# A small test with built-in data
+test <- iris %>%
+  clean_names() %>%
+  group_by(species) %>%
+  summarise(mean_length = mean(sepal_length))
+
+test
+
+# A plot and its interactive version
+p <- ggplot(iris, aes(Sepal.Length, Petal.Length, color = Species)) +
+  geom_point()
+
+p
+ggplotly(p)
+
+# Iteration with purrr
+1:3 %>% map_dbl(\(x) x * 2)
+```
+
+If everything works, you should see:
+
+- a table with 3 species and their mean sepal length
+- a scatter plot in the Plots pane
+- the same plot as an interactive version in the Viewer pane
+- the numbers `2 4 6`
+
+**Something does not work?** Copy the error message and send it to [kadleci@fzp.czu.cz](mailto:kadleci@fzp.czu.cz) before the workshop, we will help you fix it.
+
+### 4. Download the workshop materials
+
+All scripts and data will be available on GitHub on **Tuesday 24 November in the evening**: <https://github.com/kadleci/Workshop-Less-Code-More-results>
+
+Click **Code > Download ZIP**, unzip the folder and open the `.Rproj` file in RStudio.
+
+---
+
+## Contact
+
+Any questions? Write to Ivo Kadlec at [kadleci@fzp.czu.cz](mailto:kadleci@fzp.czu.cz).
+
+**We look forward to seeing you!**
+Ivo Kadlec and Nass Benneth
