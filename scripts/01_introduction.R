@@ -12,10 +12,11 @@
 # Useful keyboard shortcuts (Windows/Linux):
 # Ctrl + Enter       Run current line or selection
 # Ctrl + Shift + N   Create a new R script
+# Ctrl + Shift + C   Comment/uncomment selected lines
 # Ctrl + S           Save current script
 # Ctrl + L           Clear the console
 # Alt + -            Insert assignment operator (<-)
-# Ctrl + Shift + C   Comment/uncomment selected lines
+# Tab                Auto complete
 
 # Comments start with #.
 # R ignores everything after # on that line.
@@ -166,3 +167,5 @@ citation("tidyverse")
 # Calculate its mean while ignoring missing values.
 
 # Use ?mean to find out what na.rm does.
+
+# Can you install multiple packages at the same time?
