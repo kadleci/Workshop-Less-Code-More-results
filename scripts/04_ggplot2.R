@@ -22,7 +22,7 @@
 
 # BOXPLOTS ----
 # Boxplots are useful for comparing distributions between different groups.
-#
+
 # They show:
 # - Median (middle line)
 # - First and third quartiles (box)
@@ -56,7 +56,7 @@ cats <- big_cats %>%
     iqr = q3 - q1,
     lower = q1 - 3 * iqr,
     upper = q3 + 3 * iqr,
-    outlier = weight_kg < lower | weight_kg > upper   # | means "or"
+    outlier = weight_kg < lower | weight_kg > upper
   ) %>%
   ungroup()                                           # remove the grouping
 
@@ -64,7 +64,7 @@ cats <- big_cats %>%
 # (group_by() + summarise() would give one row per species instead)
 cats %>%
   filter(outlier) %>%
-  select(record_id, species, weight_kg, lower, upper)   # 4500, 450 and 0.4 kg
+  select(record_id, species, weight_kg, lower, upper)
 
 # Replace the outliers with NA and remove the helper columns.
 # We use NA instead of deleting the row, so the other measurements are kept.
@@ -88,8 +88,6 @@ ggplot(big_cats, aes(x = species, y = weight_kg)) +
 # For example:
 # aes(colour = species) gives each species a different colour.
 
-# Outside aes(), we specify a fixed value.
-
 # Fill boxes according to sex:
 ggplot(big_cats, aes(x = species, y = weight_kg, fill = sex)) +
   geom_boxplot()
@@ -106,11 +104,10 @@ p_box <- ggplot(big_cats, aes(x = species, y = weight_kg, fill = sex)) +
 p_box
 
 # What can we observe?
-#
 # - Different species have different weight distributions.
 # - Males have higher median weights than females in this dataset.
 # - There is considerable variation within species.
-#
+
 # A boxplot displays distributions, not individual values.
 # Remaining outliers are not necessarily measurement errors.
 
@@ -141,18 +138,16 @@ p_box
 
 # HISTOGRAMS ----
 # Histograms show the distribution of a numerical variable.
-#
+
 # They divide values into intervals (bins) and display how many observations fall into each interval.
-#
+
 # Useful for:
 # - Understanding data distributions
 # - Identifying peaks
 # - Detecting skewness
 # - Identifying potential outliers
-#
-# Example: Distribution of body weight.
 
-# Basic histogram:
+# Example: Distribution of body weight:
 ggplot(big_cats, aes(x = weight_kg)) +
   geom_histogram()
 
@@ -176,10 +171,10 @@ p_hist
 
 # binwidth = 5:
 # Each bin covers 5 kg.
-#
+
 # alpha = 0.5:
 # Makes the histograms semi-transparent.
-#
+
 # position = "identity":
 # Histograms are drawn on top of each other rather than stacked.
 
@@ -242,10 +237,10 @@ ggplot(big_cats, aes(x = body_length_cm,
   geom_smooth(method = "lm", se = FALSE)
 
 # geom_smooth() adds a trend line to the plot.
-#
+
 # method = "lm":
 # Fits a linear regression model.
-#
+
 # se = FALSE:
 # Hides the confidence interval around the fitted line.
 
@@ -352,7 +347,6 @@ p_scatter +
 
 # Each panel can have its own axis limits.
 # This can make patterns easier to see when groups have very different value ranges.
-
 # Default is scales = "fixed".
 
 # FACET_GRID
