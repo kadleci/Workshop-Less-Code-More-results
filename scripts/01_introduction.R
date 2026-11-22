@@ -12,10 +12,11 @@
 # Useful keyboard shortcuts (Windows/Linux):
 # Ctrl + Enter       Run current line or selection
 # Ctrl + Shift + N   Create a new R script
+# Ctrl + Shift + C   Comment/uncomment selected lines
 # Ctrl + S           Save current script
 # Ctrl + L           Clear the console
 # Alt + -            Insert assignment operator (<-)
-# Ctrl + Shift + C   Comment/uncomment selected lines
+# Tab                Auto complete
 
 # Comments start with #.
 # R ignores everything after # on that line.
@@ -59,6 +60,27 @@ a ^ b  # Exponentiation
 # You can also assign the result of a calculation:
 result <- a + b
 result
+
+# Other useful operators and characters:
+# <-   Assignment
+# ==   Equality comparison
+# !=   Not equal
+# >    Greater than
+# <    Less than
+# >=   Greater than or equal
+# <=   Less than or equal
+# |    OR
+# &    AND
+# $    Access a column or named element
+# :    Generate a sequence
+# %>%  Pipe operator (introduced later in the workshop)
+
+# Examples:
+10 == 10
+10 != 5
+10 > 5
+10 < 5
+1:10
 
 # More complex operations are done with functions:
 sqrt(25)       # Square root
@@ -109,6 +131,8 @@ pi_value <- 3,14 # This does NOT create the decimal number 3.14.
 # Packages extend the functionality of R.
 # Installation usually needs to be done only once, or when updating.
 install.packages("pkgbuild")
+install.packages("readxl")
+install.packages("writexl")
 install.packages("tidyverse")
 install.packages("plotly")
 # Do not put install.packages() in every analysis script.
@@ -133,13 +157,15 @@ citation("tidyverse")
 # - species_name: your favourite plant or animal species
 # - sample_size: number of individuals sampled
 # - mean_length: mean length of the sampled individuals
-#
+
 # Calculate the total estimated length:
 # mean_length * sample_size
-#
+
 # Create a vector containing the following values:
 # 12, 15, 18, 22, 25, NA
-#
+
 # Calculate its mean while ignoring missing values.
-#
+
 # Use ?mean to find out what na.rm does.
+
+# Can you install multiple packages at the same time?
