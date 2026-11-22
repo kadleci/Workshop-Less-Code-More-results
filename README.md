@@ -200,4 +200,4 @@ Tip: many people switch to the English keyboard for coding (`Win + Space`).
 Any questions? Write to Ivo Kadlec at [kadleci@fzp.czu.cz](mailto:kadleci@fzp.czu.cz).
 
 **We look forward to seeing you!**
-Ivo Kadlec and Nass Benneth
+Ivo Kadlec and Benneth Nass
