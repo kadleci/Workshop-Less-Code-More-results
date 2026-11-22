@@ -1,0 +1,103 @@
+record_id,site_id,habitat,timestamp,species,sex,age_class,body_length_cm,weight_kg,temp_c,date,year,month
+4,S06,temperate forest,2023-01-06T20:20:00Z,Eurasian lynx,F,adult,100,21.3,0.3,2023-01-06,2023,1
+14,S06,temperate forest,2023-01-13T05:32:00Z,Eurasian lynx,F,adult,101,20.2,0.9,2023-01-13,2023,1
+16,S06,temperate forest,2023-01-16T21:45:00Z,Eurasian lynx,M,adult,107,21.9,-3.5,2023-01-16,2023,1
+23,S06,temperate forest,2023-01-19T04:38:00Z,Eurasian lynx,M,adult,109,23,0.8,2023-01-19,2023,1
+28,S06,temperate forest,2023-01-21T23:22:00Z,Eurasian lynx,M,adult,101,17.3,0.2,2023-01-21,2023,1
+31,S06,temperate forest,2023-01-25T20:50:00Z,Eurasian lynx,F,adult,NA,NA,-3.4,2023-01-25,2023,1
+38,S06,temperate forest,2023-02-06T20:52:00Z,Leopard,M,adult,166,76.6,3.6,2023-02-06,2023,2
+43,S06,temperate forest,2023-02-09T23:16:00Z,Leopard,F,adult,123,32.7,-2.6,2023-02-09,2023,2
+55,S06,temperate forest,2023-02-22T21:31:00Z,Leopard,M,adult,159,66.2,-2.7,2023-02-22,2023,2
+62,S06,temperate forest,2023-02-26T20:16:00Z,Eurasian lynx,M,adult,NA,21.1,NA,2023-02-26,2023,2
+66,S06,temperate forest,2023-03-02T22:03:00Z,Eurasian lynx,M,subadult,106,22,-1.4,2023-03-02,2023,3
+81,S06,temperate forest,2023-03-20T01:29:00Z,Leopard,M,adult,154,63.3,3.5,2023-03-20,2023,3
+88,S06,temperate forest,2023-03-28T02:43:00Z,Leopard,M,adult,110,49.3,4.5,2023-03-28,2023,3
+90,S06,temperate forest,2023-03-28T22:05:00Z,Eurasian lynx,M,subadult,98,15.9,1.2,2023-03-28,2023,3
+92,S06,temperate forest,2023-04-01T20:36:00Z,Eurasian lynx,M,adult,117,30.3,2.9,2023-04-01,2023,4
+95,S06,temperate forest,2023-04-06T01:38:00Z,Eurasian lynx,F,adult,97,18.5,5.7,2023-04-06,2023,4
+98,S06,temperate forest,2023-04-09T06:12:00Z,Eurasian lynx,M,subadult,100,18.3,6.5,2023-04-09,2023,4
+100,S06,temperate forest,2023-04-13T00:31:00Z,Eurasian lynx,M,adult,99,18.4,6.1,2023-04-13,2023,4
+103,S06,temperate forest,2023-04-15T21:34:00Z,Eurasian lynx,M,adult,103,20.3,10.9,2023-04-15,2023,4
+105,S06,temperate forest,2023-04-19T06:58:00Z,Leopard,M,adult,163,84.8,7.9,2023-04-19,2023,4
+123,S06,temperate forest,2023-05-26T23:45:00Z,Leopard,F,adult,133,38.8,11.8,2023-05-26,2023,5
+126,S06,temperate forest,2023-06-01T04:53:00Z,Leopard,F,adult,133,37.4,18.3,2023-06-01,2023,6
+128,S06,temperate forest,2023-06-06T02:11:00Z,Leopard,F,subadult,114,23.7,11,2023-06-06,2023,6
+145,S06,temperate forest,2023-08-03T01:51:00Z,Leopard,F,adult,138,NA,23.1,2023-08-03,2023,8
+151,S06,temperate forest,2023-08-17T00:47:00Z,Leopard,F,subadult,130,38.6,15.3,2023-08-17,2023,8
+162,S06,temperate forest,2023-09-13T03:56:00Z,Eurasian lynx,F,adult,104,22.3,13.9,2023-09-13,2023,9
+180,S06,temperate forest,2023-10-13T21:59:00Z,Leopard,M,subadult,112,23.6,11.5,2023-10-13,2023,10
+185,S06,temperate forest,2023-10-22T01:00:00Z,Eurasian lynx,F,subadult,80,9.7,5.4,2023-10-22,2023,10
+191,S06,temperate forest,2023-11-01T02:33:00Z,Leopard,F,subadult,132,NA,8.6,2023-11-01,2023,11
+199,S06,temperate forest,2023-11-11T04:11:00Z,Leopard,M,adult,170,85.2,1.8,2023-11-11,2023,11
+203,S06,temperate forest,2023-11-15T05:19:00Z,Eurasian lynx,F,adult,95,16.9,1.1,2023-11-15,2023,11
+225,S06,temperate forest,2023-12-01T22:48:00Z,Leopard,F,subadult,113,22.7,-4.9,2023-12-01,2023,12
+239,S06,temperate forest,2023-12-14T20:33:00Z,Eurasian lynx,M,subadult,92,12.8,2.5,2023-12-14,2023,12
+243,S06,temperate forest,2023-12-17T05:01:00Z,Eurasian lynx,M,adult,103,19.5,2.8,2023-12-17,2023,12
+245,S06,temperate forest,2023-12-21T05:59:00Z,Leopard,M,adult,157,70.9,-5.7,2023-12-21,2023,12
+250,S06,temperate forest,2024-01-01T00:25:00Z,Leopard,F,adult,140,48.2,-2.8,2024-01-01,2024,1
+253,S06,temperate forest,2024-01-02T04:40:00Z,Leopard,F,subadult,133,43.1,-1.9,2024-01-02,2024,1
+263,S06,temperate forest,2024-01-05T05:57:00Z,Eurasian lynx,F,adult,98,18.1,-0.6,2024-01-05,2024,1
+268,S06,temperate forest,2024-01-08T22:28:00Z,Eurasian lynx,M,adult,97,16.8,2.8,2024-01-08,2024,1
+279,S06,temperate forest,2024-01-20T01:02:00Z,Leopard,F,adult,131,40.6,-5.3,2024-01-20,2024,1
+287,S06,temperate forest,2024-01-28T20:17:00Z,Eurasian lynx,M,adult,94,15.3,-2.8,2024-01-28,2024,1
+291,S06,temperate forest,2024-02-03T04:36:00Z,Leopard,M,adult,134,42,-2.2,2024-02-03,2024,2
+292,S06,temperate forest,2024-02-03T23:02:00Z,Leopard,M,subadult,126,33,-3.4,2024-02-03,2024,2
+294,S06,temperate forest,2024-02-04T06:51:00Z,Leopard,F,adult,129,NA,-2.2,2024-02-04,2024,2
+300,S06,temperate forest,2024-02-07T02:03:00Z,Leopard,F,subadult,123,34,-5.7,2024-02-07,2024,2
+301,S06,temperate forest,2024-02-07T21:48:00Z,Leopard,M,adult,161,67.3,3.1,2024-02-07,2024,2
+305,S06,temperate forest,2024-02-09T02:13:00Z,Eurasian lynx,F,adult,91,14.8,-1.6,2024-02-09,2024,2
+316,S06,temperate forest,2024-02-19T01:10:00Z,Leopard,M,adult,179,89.9,0.5,2024-02-19,2024,2
+318,S06,temperate forest,2024-02-20T03:04:00Z,Leopard,M,subadult,131,38.6,0.5,2024-02-20,2024,2
+333,S06,temperate forest,2024-02-28T01:02:00Z,Leopard,M,adult,133,40,1.6,2024-02-28,2024,2
+339,S06,temperate forest,2024-03-04T02:18:00Z,Eurasian lynx,F,subadult,81,10.9,7,2024-03-04,2024,3
+346,S06,temperate forest,2024-03-14T05:15:00Z,Eurasian lynx,F,adult,89,13.8,-3.4,2024-03-14,2024,3
+348,S06,temperate forest,2024-03-16T23:18:00Z,Leopard,M,adult,155,65.8,4.2,2024-03-16,2024,3
+362,S06,temperate forest,2024-03-24T20:37:00Z,Eurasian lynx,M,subadult,101,19.2,-2.3,2024-03-24,2024,3
+364,S06,temperate forest,2024-03-25T21:10:00Z,Eurasian lynx,F,adult,97,18.2,4.6,2024-03-25,2024,3
+365,S06,temperate forest,2024-03-25T22:51:00Z,Eurasian lynx,F,adult,110,NA,1.9,2024-03-25,2024,3
+370,S06,temperate forest,2024-04-01T22:56:00Z,Leopard,M,adult,159,67.8,2.8,2024-04-01,2024,4
+399,S06,temperate forest,2024-04-26T05:59:00Z,Eurasian lynx,M,subadult,NA,20,7.6,2024-04-26,2024,4
+403,S06,temperate forest,2024-05-04T04:13:00Z,Leopard,M,adult,162,75.3,9.1,2024-05-04,2024,5
+405,S06,temperate forest,2024-05-05T20:58:00Z,Eurasian lynx,F,adult,99,19.5,11,2024-05-05,2024,5
+413,S06,temperate forest,2024-05-21T23:48:00Z,Eurasian lynx,F,subadult,85,11.9,12,2024-05-21,2024,5
+417,S06,temperate forest,2024-05-25T05:05:00Z,Leopard,F,subadult,108,22,18.1,2024-05-25,2024,5
+440,S06,temperate forest,2024-06-27T23:34:00Z,Leopard,M,adult,146,51,16.3,2024-06-27,2024,6
+445,S06,temperate forest,2024-07-19T06:43:00Z,Eurasian lynx,M,adult,106,22.4,10.6,2024-07-19,2024,7
+446,S06,temperate forest,2024-07-19T20:15:00Z,Leopard,M,subadult,136,39.9,12.5,2024-07-19,2024,7
+453,S06,temperate forest,2024-08-18T20:41:00Z,Leopard,M,subadult,135,44.6,16.1,2024-08-18,2024,8
+458,S06,temperate forest,2024-09-03T02:51:00Z,Leopard,F,adult,120,29.3,10.5,2024-09-03,2024,9
+473,S06,temperate forest,2024-09-22T03:46:00Z,Leopard,M,adult,143,51,16.3,2024-09-22,2024,9
+475,S06,temperate forest,2024-09-23T22:25:00Z,Leopard,M,adult,182,108.1,9.8,2024-09-23,2024,9
+478,S06,temperate forest,2024-10-04T05:35:00Z,Eurasian lynx,M,adult,111,23.7,9.8,2024-10-04,2024,10
+482,S06,temperate forest,2024-10-06T02:50:00Z,Eurasian lynx,F,adult,92,14.7,14.3,2024-10-06,2024,10
+484,S06,temperate forest,2024-10-07T21:16:00Z,Leopard,M,adult,170,76.3,8.5,2024-10-07,2024,10
+500,S06,temperate forest,2024-10-18T04:50:00Z,Leopard,M,adult,155,69.1,9.9,2024-10-18,2024,10
+502,S06,temperate forest,2024-10-20T21:27:00Z,Eurasian lynx,M,adult,96,16.3,6,2024-10-20,2024,10
+504,S06,temperate forest,2024-10-21T23:03:00Z,Leopard,M,adult,159,NA,10,2024-10-21,2024,10
+518,S06,temperate forest,2024-11-06T23:15:00Z,Eurasian lynx,F,adult,94,16.8,5.4,2024-11-06,2024,11
+521,S06,temperate forest,2024-11-09T22:11:00Z,Eurasian lynx,M,subadult,86,NA,-2.1,2024-11-09,2024,11
+523,S06,temperate forest,2024-11-11T05:43:00Z,Eurasian lynx,F,subadult,78,9.6,5.4,2024-11-11,2024,11
+524,S06,temperate forest,2024-11-11T21:08:00Z,Eurasian lynx,F,subadult,88,13.3,-1.7,2024-11-11,2024,11
+529,S06,temperate forest,2024-11-15T05:17:00Z,Leopard,M,adult,145,58,9.1,2024-11-15,2024,11
+540,S06,temperate forest,2024-11-21T01:25:00Z,Eurasian lynx,M,adult,95,15.5,3.9,2024-11-21,2024,11
+556,S06,temperate forest,2024-12-02T04:02:00Z,Leopard,M,adult,155,56.3,-0.6,2024-12-02,2024,12
+557,S06,temperate forest,2024-12-03T04:46:00Z,Eurasian lynx,M,adult,104,19.3,-3.1,2024-12-03,2024,12
+559,S06,temperate forest,2024-12-04T23:58:00Z,Eurasian lynx,F,adult,99,19.8,0.5,2024-12-04,2024,12
+564,S06,temperate forest,2024-12-06T05:47:00Z,Eurasian lynx,F,adult,82,9.5,1,2024-12-06,2024,12
+565,S06,temperate forest,2024-12-06T22:10:00Z,Eurasian lynx,F,adult,103,21.1,-2.4,2024-12-06,2024,12
+567,S06,temperate forest,2024-12-07T23:41:00Z,Eurasian lynx,F,adult,108,26.1,-1,2024-12-07,2024,12
+573,S06,temperate forest,2024-12-11T06:31:00Z,Leopard,M,adult,138,47.1,4.8,2024-12-11,2024,12
+578,S06,temperate forest,2024-12-13T01:08:00Z,Leopard,M,subadult,136,44,0.2,2024-12-13,2024,12
+582,S06,temperate forest,2024-12-14T06:53:00Z,Leopard,F,adult,144,NA,-2.1,2024-12-14,2024,12
+585,S06,temperate forest,2024-12-18T22:21:00Z,Leopard,F,adult,123,29.7,1.3,2024-12-18,2024,12
+588,S06,temperate forest,2024-12-23T00:54:00Z,Eurasian lynx,M,adult,99,NA,0.7,2024-12-23,2024,12
+590,S06,temperate forest,2024-12-23T04:03:00Z,Leopard,F,adult,122,NA,3,2024-12-23,2024,12
+591,S06,temperate forest,2024-12-23T23:54:00Z,Leopard,M,adult,166,NA,-3.6,2024-12-23,2024,12
+595,S06,temperate forest,2024-12-24T23:56:00Z,Eurasian lynx,F,adult,95,16.9,4.3,2024-12-24,2024,12
+599,S06,temperate forest,2024-12-26T02:41:00Z,Leopard,F,subadult,129,36.2,2,2024-12-26,2024,12
+600,S06,temperate forest,2024-12-27T21:15:00Z,Eurasian lynx,M,subadult,88,12.2,-5,2024-12-27,2024,12
+10,S06,temperate forest,NA,Eurasian lynx,F,adult,108,24.1,-0.1,NA,NA,NA
+80,S06,temperate forest,NA,Eurasian lynx,F,adult,NA,14.5,1.9,NA,NA,NA
+241,S06,temperate forest,NA,Leopard,M,subadult,123,NA,-2,NA,NA,NA
+541,S06,temperate forest,NA,Leopard,M,subadult,144,53.6,1.6,NA,NA,NA
+589,S06,temperate forest,NA,Eurasian lynx,M,adult,106,20.8,2.9,NA,NA,NA

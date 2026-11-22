@@ -2,11 +2,91 @@
 # Input:  workshop_data/big_cats_raw.csv, workshop_data/sites.csv
 # Output: workshop_data/big_cats_clean.csv (used later for ggplot)
 
-library(tidyverse)   # dplyr, tidyr, readr, stringr, ggplot2
-library(lubridate)   # working with dates and times
+library(tidyverse)   # dplyr, tidyr, readr, stringr, ggplot2, lubridate
 library(janitor)     # clean_names()
 
-## 1. Load the data ----
+## 1. What is the tidyverse? ----
+
+# The tidyverse is a collection of R packages for data science.
+# library(tidyverse) loads the core packages at once:
+#   readr      import data (read_csv)
+#   dplyr      transform data (filter, select, mutate, summarise, joins)
+#   tidyr      reshape data (pivot_longer, pivot_wider)
+#   stringr    work with text (str_trim, str_replace)
+#   lubridate  work with dates and times
+#   ggplot2    plots
+#   purrr      iteration (map)
+#   forcats    factors (categories)
+#   tibble     a modern version of data.frame
+
+# List of all tidyverse packages:
+tidyverse_packages()
+
+# Why is it useful?
+# - All packages share the same style, so once you learn one, the others are easy.
+# - Function names are verbs that say what they do: filter(), select(), arrange().
+# - The first input is always the data, and the result is again a table.
+#   That is why the functions can be chained into a pipeline.
+# - Code is easier to read for other people and for you in half a year.
+# - Very good documentation, cheatsheets and a large community.
+#   Free book: R for Data Science, https://r4ds.hadley.nz
+
+## 2. What is a pipeline? ----
+
+# A pipeline is a chain of steps, where the result of one step
+# goes straight into the next one.
+# The pipe takes the result on the left and puts it as the FIRST input
+# of the function on the right:
+#   x %>% f()        is the same as   f(x)
+#   x %>% f(y)       is the same as   f(x, y)
+#   x %>% f() %>% g() is the same as  g(f(x))
+
+x <- c(4, 9, 16)
+
+# The same calculation written in three ways:
+
+# 1. Nested functions: we have to read from the inside out
+round(mean(sqrt(x)), 1)
+
+# 2. Intermediate objects: easy to read, but many objects we do not need
+x_sqrt <- sqrt(x)
+x_mean <- mean(x_sqrt)
+round(x_mean, 1)
+
+# 3. Pipeline: read from left to right, like a recipe
+#    "take x, then square root, then mean, then round"
+x %>%
+  sqrt() %>%
+  mean() %>%
+  round(1)
+
+# Read %>% as "and then".
+# Write each step on a new line, with the pipe at the END of the line.
+
+# Shortcut for the pipe:
+#   Windows/Linux: Ctrl + Shift + M
+#   macOS:         Cmd + Shift + M
+
+## 3. Two pipes: %>% and |> ----
+
+# %>%  comes from the magrittr package (loaded with the tidyverse)
+# |>   is the native pipe, built into R since version 4.1, no package needed
+x |> sqrt() |> mean() |> round(1)
+
+# For everyday work they do the same thing. Small differences:
+# - |> works without loading any package and is a bit faster
+# - %>% also accepts a function without brackets: x %>% sqrt   (|> needs sqrt())
+# - placeholder when the data should not go to the first input:
+#     %>% uses a dot:        cats %>% lm(weight_kg ~ body_length_cm, data = .)
+#     |>  uses underscore:   cats |> lm(weight_kg ~ body_length_cm, data = _)
+# In this workshop we use %>%, but you can use either. Just stay consistent.
+
+# Which pipe does Ctrl + Shift + M insert?
+# Tools > Global Options > Code > Editing >
+#   "Use native pipe operator, |> (requires R 4.1+)"
+# Ticked: the shortcut writes |>, not ticked: it writes %>%
+
+## 4. Load the data ----
 
 # read_csv() removes spaces around text values automatically (trim_ws = TRUE)
 raw <- read_csv("workshop_data/big_cats_raw.csv")
@@ -16,7 +96,11 @@ sites <- read_csv("workshop_data/sites.csv")
 glimpse(raw)
 head(raw)
 
-## 2. Column names and unnecessary columns ----
+# The same question written in two ways:
+unique(raw$Species)
+raw$Species %>% unique()
+
+## 5. Column names and unnecessary columns ----
 
 cats <- raw %>%
   # The Czech name and the degree symbol are renamed by hand,
@@ -31,16 +115,34 @@ cats <- raw %>%
   # Remove duplicated rows (identical in all columns)
   distinct()
 
+# All three renames could also be done in one rename() before clean_names():
+# rename(site_id = Site, sex = `Pohlaví`, temp_c = starts_with("Temp"))
+
 # Look at the data again. What has changed and what is still wrong?
 glimpse(cats)
 head(cats)
 
-## 3. Text columns ----
+## 6. Text columns ----
 
 # Find the problems first: which values occur in the column?
 unique(cats$species)
-# Exercise: how can you get the same with a pipeline?
+unique(cats$site_id)
+unique(cats$sex)
 
+# Exercise: how can you get the same as a table with a pipeline?
+# Hint: distinct() or count()
+
+# Option 1: case_when(), every variant written out by hand.
+# Clear to read, but we must know all the variants in advance.
+cats %>%
+  mutate(sex_new = case_when(
+    str_trim(sex) %in% c("M", "m", "male") ~ "M",
+    str_trim(sex) %in% c("F", "f", "Female") ~ "F",
+    TRUE ~ NA_character_                 # anything else becomes NA
+  )) %>%
+  count(sex, sex_new)                    # Check: old value next to the new one
+
+# Option 2: stringr functions, they fix all variants at once.
 cats <- cats %>%
   mutate(
     # "s03" -> "S03"
@@ -75,25 +177,28 @@ cats %>% count(sex)         # M, F
 cats %>% count(age_class)   # adult, subadult
 cats %>% count(site_id)     # S01 to S06
 
-## 4. Numeric columns ----
+## 7. Numeric columns ----
 
 # Find the problems first: weight_kg is <chr>, so something in it is not a number
 glimpse(cats)
 cats$weight_kg %>% unique()
+cats$body_length_cm %>% unique()
 
 cats <- cats %>%
   mutate(
     # Weight was loaded as text because of the decimal commas.
-    # Replace commas, turn "n/a" into a real NA and convert to a number.
+    # Replace commas and convert to a number.
     weight_kg = weight_kg %>%
       str_replace(",", ".") %>%
-      na_if("n/a") %>%
+      # na_if("n/a") %>%
+      # Question: why do we not need na_if("n/a") here?
+      # Hint: try as.numeric("n/a")
       as.numeric(),
 
     # 0 and -999 are codes for missing values, not real weights
     # if_else(condition, value if TRUE, value if FALSE)
-    weight_kg = if_else(weight_kg <= 0, NA_real_, weight_kg),
-    body_length_cm = if_else(body_length_cm <= 0, NA_real_, body_length_cm),
+    weight_kg = if_else(weight_kg <= 0, NA, weight_kg),
+    body_length_cm = if_else(body_length_cm <= 0, NA, body_length_cm),
 
     # Some lengths were entered in wrong units:
     # 1.1 is in metres, 1100 is in millimetres
@@ -109,66 +214,13 @@ cats <- cats %>%
 summary(cats$weight_kg)
 summary(cats$body_length_cm)
 
-## 5. Outliers ----
-
-# Find the problems first: a boxplot per species shows the extreme values
-ggplot(cats, aes(species, weight_kg)) +
-  geom_boxplot()
-
-# How do we decide what is an outlier? We use the IQR rule (Tukey's rule),
-# the same rule that a boxplot uses to draw the separate points.
-#
-# Q1 (1st quartile)  = 25 % of values are smaller than this
-# Q3 (3rd quartile)  = 75 % of values are smaller than this
-# IQR = Q3 - Q1      = the range of the middle half of the data (the box)
-#
-# A value is an outlier when it is far from the box:
-#   lower limit = Q1 - 3 * IQR
-#   upper limit = Q3 + 3 * IQR
-# Boxplots use 1.5 * IQR. We use 3 * IQR to remove only extreme values
-# (typing errors), not animals that are just a bit bigger or smaller.
-#
-# Why per species? A weight of 3 kg is normal for Pallas's cat,
-# but impossible for a leopard. With limits calculated for all cats
-# together, the small and large species would hide each other's errors.
-
-# Step 1: calculate the limits for each species and look at the outliers
-cats <- cats %>%
-  group_by(species) %>%                               # calculations per species
-  mutate(
-    q1 = quantile(weight_kg, 0.25, na.rm = TRUE),     # na.rm = TRUE ignores NA
-    q3 = quantile(weight_kg, 0.75, na.rm = TRUE),
-    iqr = q3 - q1,
-    lower = q1 - 3 * iqr,
-    upper = q3 + 3 * iqr,
-    outlier = weight_kg < lower | weight_kg > upper   # | means "or"
-  ) %>%
-  ungroup()                                           # remove the grouping
-
-# group_by() + mutate() keeps all rows and adds the limits to each of them
-# (group_by() + summarise() would give one row per species instead)
-cats %>%
-  filter(outlier) %>%
-  select(record_id, species, weight_kg, lower, upper)   # 4500, 450 and 0.4 kg
-
-# Step 2: replace the outliers with NA and remove the helper columns
-# We use NA instead of deleting the row, so the other measurements are kept
-cats <- cats %>%
-  mutate(weight_kg = if_else(outlier, NA_real_, weight_kg, missing = weight_kg)) %>%
-  select(-q1, -q3, -iqr, -lower, -upper, -outlier)
-
-# Check: the boxplot again, the extreme points should be gone
-ggplot(cats, aes(species, weight_kg)) +
-  geom_boxplot()
-
-## 6. Dates and times ----
+## 8. Dates and times ----
 
 # Find the problems first: timestamp is <chr> and has two different formats
 cats$timestamp %>% unique() %>% head(20)
 
 cats <- cats %>%
   mutate(
-    # Timestamps are stored in two formats:
     # "2024-01-15 22:30:00" and "15.01.2024 22:30"
     # parse_date_time() tries both orders and reads both of them
     timestamp = parse_date_time(timestamp, orders = c("Ymd HMS", "dmY HM")),
@@ -180,7 +232,24 @@ cats <- cats %>%
 # Check: how many records have no timestamp (missing already in the raw data)
 cats %>% filter(is.na(timestamp)) %>% nrow()
 
-## 7. Add habitat from the sites table ----
+## 9. filter() and arrange() ----
+
+# filter() keeps the rows that meet a condition
+cats %>% filter(species == "Leopard")
+cats %>% filter(species == "Leopard", sex == "F")     # comma means "and"
+cats %>% filter(species %in% c("Leopard", "Snow leopard"))
+
+# Rows with and without a missing value (! means "not")
+cats %>% filter(is.na(weight_kg))
+cats %>% filter(!is.na(weight_kg))
+
+# arrange() sorts the rows, desc() from the largest
+cats %>% arrange(desc(weight_kg)) %>% select(species, weight_kg) %>% head()
+cats %>% arrange(weight_kg) %>% select(species, weight_kg) %>% head()
+
+# Some weights look strange (4500 kg?). We will deal with outliers in the next block.
+
+## 10. Add habitat from the sites table ----
 
 # left_join() keeps all records and adds habitat by matching site_id
 cats <- cats %>%
@@ -188,24 +257,58 @@ cats <- cats %>%
   relocate(habitat, .after = site_id) %>%   # move habitat next to site_id
   arrange(timestamp)                        # sort by time
 
-## 8. Final check ----
+## 11. Final check ----
 
 glimpse(cats)
 
 # Number of NA values in each column
 cats %>% summarise(across(everything(), ~ sum(is.na(.x))))
 
-# A quick plot is the fastest way to spot anything that is still wrong
-ggplot(cats, aes(body_length_cm, weight_kg, color = species)) +
-  geom_point()
+## 12. Long and wide format ----
 
-## 9. Wide to long format ----
+# Number of captures per species and month, in long format:
+# one row per combination
+captures_long <- cats %>%
+  filter(!is.na(timestamp)) %>%
+  count(species, month)
 
-# Monthly counts are in separate columns (Jan, Feb, ...).
-# For ggplot we need one column with the month and one with the count.
-captures_long <- read_csv("workshop_data/captures_wide.csv") %>%
-  pivot_longer(Jan:Dec, names_to = "month", values_to = "n")
+captures_long
 
-## 10. Save the clean data ----
+# Wide format: one column per month, easier to read as a table
+captures_wide <- captures_long %>%
+  pivot_wider(names_from = month, values_from = n, values_fill = 0)
+
+captures_wide
+
+# And back to long format, which ggplot needs
+captures_wide %>%
+  pivot_longer(-species, names_to = "month", values_to = "n")
+
+## 13. Save the clean data ----
 
 write_csv(cats, "workshop_data/big_cats_clean.csv")
+
+## 14. Task: clean the raptor data ----
+
+# File: workshop_data/exercise_raptors_raw.csv
+# Go step by step and check the result after each step.
+#
+# 1. Load the file and look at it with glimpse().
+#
+# 2. One column has a Czech name. Rename it to species
+#    and clean all column names.
+#
+# 3. Remove the columns you do not need (ring number, ringer, weather, notes)
+#    and remove duplicated rows.
+#
+# 4. Fix the text columns sex and species.
+#    Check with count() that only the expected values are left
+#    (6 species, M and F).
+#
+# 5. weight_g is loaded as text. Find out why,
+#    replace the codes for missing values with NA and convert it to a number.
+#
+# 6. Check the result with summary() and save it as
+#    workshop_data/raptors_clean.csv
+#
+# Bonus: write all steps as one pipeline.
