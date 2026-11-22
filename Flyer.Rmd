@@ -1,7 +1,7 @@
 ---
 title: "Less code, more results"
 subtitle: "A modern workflow in R, from messy data to interactive plots"
-author: "Ivo Kadlec and Nass Benneth"
+author: "Ivo Kadlec and Benneth Nass"
 date: "2026-11-16"
 output: html_document
 ---
@@ -140,4 +140,4 @@ Click **Code > Download ZIP**, unzip the folder and open the `.Rproj` file in RS
 Any questions? Write to Ivo Kadlec at [kadleci@fzp.czu.cz](mailto:kadleci@fzp.czu.cz).
 
 **We look forward to seeing you!**
-Ivo Kadlec and Nass Benneth
+Ivo Kadlec and Benneth Nass

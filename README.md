@@ -12,7 +12,7 @@
 | **Event** | Kostelecké inspirování 2026 |
 | **When** | Wednesday 25 November 2026, 14:00 to 19:00 |
 | **Where** | The Grand Hall |
-| **Led by** | Ivo Kadlec and Nass Benneth |
+| **Led by** | Ivo Kadlec and Benneth Nass |
 | **Bring** | Your own laptop with R and RStudio installed |
 
 ---
