@@ -88,7 +88,7 @@ Record ID,Site,Timestamp,Species,Pohlaví,Age class,Body length [cm],Weight (kg)
 85,S03,2023-03-22 06:44:00,leopard, F,adult,128,39.2,23,TR167,LT,NA,L9517
 86,S04,2023-03-22 20:13:00,Clouded leopard,M,adult,NA,"20,3",19.9,TR759,LT,NA,L5587
 87,S03,2023-03-26 04:49:00,Leopard,F,subadult,110,21,22.8,TR702,LT,NA,L3486
-88,S06,2023-03-28 02:43:00,Leopard,M,adult,1.1,49.3,4.5,TR715,MS,NA,L5434
+88,S06,2023-03-28 02:43:00,Leopard,M,adult,140,49.3,4.5,TR715,MS,NA,L5434
 89,S05,2023-03-28 06:47:00,Eurasian lynx,M,Adult,108,0,-2.7,TR595,JK,NA,L9512
 90,S06,2023-03-28 22:05:00,Eurasian linx,M,subadult,98,15.9,1.2,TR169,MS,NA,L2625
 91,s05,2023-04-01 05:43:00,Eurasian lynx,M,adult,101,16.9,2.9,TR278,JK,NA,L4859
@@ -191,7 +191,7 @@ Record ID,Site,Timestamp,Species,Pohlaví,Age class,Body length [cm],Weight (kg)
 187,S02,2023-10-26 06:43:00,Pallas's cat,Female,adult,51,2.9,-3.3,TR754,MS,NA,L4400
 188,S02,2023-10-27 00:08:00,Pallas's cat,Female,adult,52,2.9,6.7,TR940,MS,NA,L3844
 189,S02,2023-10-27 01:26:00,Pallas's cat,f,adult,52,2.8,NA,TR217,MS,NA,L8947
-190,S02,2023-10-28 21:25:00,Pallas's cat,F,adult,1100,3.2,NA,TR718,LT,NA,L4426
+190,S02,2023-10-28 21:25:00,Pallas's cat,F,adult,54,3.2,NA,TR718,LT,NA,L4426
 191,S06,2023-11-01 02:33:00,Leopard,F,subadult,132,0,8.6,TR488,PN,rain,L9417
 192,S04,2023-11-01 05:08:00,Leopard,F,subadult,112,"23,8",32.2,TR412,JK,NA,L7359
 193,S02,2023-11-02 22:08:00,Pallas's cat,F,adult,63,"5,2",-3.9,TR115,MS,NA,L2935

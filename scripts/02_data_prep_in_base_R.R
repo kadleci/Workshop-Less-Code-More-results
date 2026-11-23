@@ -70,6 +70,8 @@ names(big_cats)[names(big_cats) == "Site"] <- "site"
 names(big_cats)[names(big_cats) == "Timestamp"] <- "timestamp"
 names(big_cats)[names(big_cats) == "Species"] <- "species"
 names(big_cats)[names(big_cats) == "Pohlaví"] <- "sex"
+names(big_cats)[names(big_cats) == "Weight (kg)"] <- "weight_kg"
+names(big_cats)[names(big_cats) == "Body length [cm]"] <- "body_length_cm"
 
 # Check the new names:
 names(big_cats)
@@ -131,7 +133,7 @@ big_cats[] <- lapply(big_cats, function(x) {
 unique(big_cats$species)
 unique(big_cats$site)
 unique(big_cats$sex)
-unique(big_cats$age_class)
+# unique(big_cats$age_class)
 
 # Standardise site codes:
 # toupper() converts text to uppercase.
@@ -184,7 +186,6 @@ summary(big_cats$weight_kg)
 
 # We can also convert other numeric columns:
 big_cats$body_length_cm <- as.numeric(big_cats$body_length_cm)
-big_cats$temperature_c <- as.numeric(big_cats$temperature_c)
 
 # Handling missing values
 # Missing values can be represented in different ways.
@@ -249,7 +250,6 @@ colSums(is.na(big_cats))
 # Unique categories:
 unique(big_cats$species)
 unique(big_cats$sex)
-unique(big_cats$age_class)
 
 # Check for remaining duplicated rows:
 sum(duplicated(big_cats))

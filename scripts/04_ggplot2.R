@@ -15,8 +15,8 @@
 # Load tidyverse
 # library(tidyverse)
 # Load clean data
-# big_cats <- read.csv(
-#   "big_cats_clean.csv",
+# cats <- read.csv(
+#   "cats_clean.csv",
 #   stringsAsFactors = FALSE
 # )
 
@@ -30,7 +30,7 @@
 # - Potential outliers
 
 # Basic boxplot:
-ggplot(big_cats, aes(x = species, y = weight_kg)) +
+ggplot(cats, aes(x = species, y = weight_kg)) +
   geom_boxplot()
 
 # How do we decide what is an outlier? We use the IQR rule (Tukey's rule), the same rule that a boxplot uses to draw the separate points.
@@ -48,7 +48,7 @@ ggplot(big_cats, aes(x = species, y = weight_kg)) +
 # Why per species? A weight of 3 kg is normal for Pallas's cat, but impossible for a leopard. With limits calculated for all cats together, the small and large species would hide each other's errors.
 
 # Calculate the limits for each species and look at the outliers
-cats <- big_cats %>%
+cats <- cats %>%
   group_by(species) %>%                               # calculations per species
   mutate(
     q1 = quantile(weight_kg, 0.25, na.rm = TRUE),     # na.rm = TRUE ignores NA
@@ -68,12 +68,12 @@ cats %>%
 
 # Replace the outliers with NA and remove the helper columns.
 # We use NA instead of deleting the row, so the other measurements are kept.
-big_cats <- cats %>%
+cats <- cats %>%
   mutate(weight_kg = if_else(outlier, NA_real_, weight_kg, missing = weight_kg)) %>%
   select(-q1, -q3, -iqr, -lower, -upper, -outlier)
 
 # Check the boxplots again, the extreme points should be gone:
-ggplot(big_cats, aes(x = species, y = weight_kg)) +
+ggplot(cats, aes(x = species, y = weight_kg)) +
   geom_boxplot()
 
 # Aesthetics control how variables are represented in a plot.
@@ -89,11 +89,11 @@ ggplot(big_cats, aes(x = species, y = weight_kg)) +
 # aes(colour = species) gives each species a different colour.
 
 # Fill boxes according to sex:
-ggplot(big_cats, aes(x = species, y = weight_kg, fill = sex)) +
+ggplot(cats, aes(x = species, y = weight_kg, fill = sex)) +
   geom_boxplot()
 
 # Add a legend and save as object:
-p_box <- ggplot(big_cats, aes(x = species, y = weight_kg, fill = sex)) +
+p_box <- ggplot(cats, aes(x = species, y = weight_kg, fill = sex)) +
   geom_boxplot() +
   labs(
     title = "Weight distribution by species and sex",
@@ -116,7 +116,7 @@ p_box
 # library(rstatix)
 
 # Perform Wilcoxon tests separately for each species
-# boxplot_stats <- big_cats %>%
+# boxplot_stats <- cats %>%
 #   group_by(species) %>%
 #   wilcox_test(weight_kg ~ sex) %>%
 #   ungroup() %>%
@@ -125,7 +125,7 @@ p_box
 #   add_xy_position(x = "species")
 
 # Boxplot with significance bars and asterisks
-# ggplot(big_cats, aes(x = species, y = weight_kg, fill = sex)) +
+# ggplot(cats, aes(x = species, y = weight_kg, fill = sex)) +
 #   geom_boxplot() +
 #   stat_pvalue_manual(
 #     boxplot_stats,
@@ -148,20 +148,20 @@ p_box
 # - Identifying potential outliers
 
 # Example: Distribution of body weight:
-ggplot(big_cats, aes(x = weight_kg)) +
+ggplot(cats, aes(x = weight_kg)) +
   geom_histogram()
 
 # Change the bin width:
-ggplot(big_cats, aes(x = weight_kg)) +
+ggplot(cats, aes(x = weight_kg)) +
   geom_histogram(binwidth = 5)
 
 # Add fill by species:
-ggplot(big_cats, aes(x = weight_kg, fill = species)) +
+ggplot(cats, aes(x = weight_kg, fill = species)) +
   geom_histogram(
     binwidth = 5,
   )
 
-p_hist <- ggplot(big_cats, aes(x = weight_kg, fill = species)) +
+p_hist <- ggplot(cats, aes(x = weight_kg, fill = species)) +
     geom_histogram(
       binwidth = 5,
       alpha = 0.5,
@@ -183,17 +183,17 @@ p_hist
 # We assign one numerical variable to the x-axis and another numerical variable to the y-axis.
 
 ggplot(
-  data = big_cats,
+  data = cats,
   aes(x = body_length_cm, y = weight_kg)
 ) +
   geom_point()
 
 # We can also write the same code more compactly:
-ggplot(big_cats, aes(body_length_cm, weight_kg)) +
+ggplot(cats, aes(body_length_cm, weight_kg)) +
   geom_point()
 
 # Add a title and axis labels:
-ggplot(big_cats, aes(body_length_cm, weight_kg)) +
+ggplot(cats, aes(body_length_cm, weight_kg)) +
   geom_point() +
   labs(
     title = "Body length and weight of big cats",
@@ -202,11 +202,11 @@ ggplot(big_cats, aes(body_length_cm, weight_kg)) +
   )
 
 # Colour by species:
-ggplot(big_cats, aes(body_length_cm, weight_kg, colour = species)) +
+ggplot(cats, aes(body_length_cm, weight_kg, colour = species)) +
   geom_point()
 
 # With labels:
-ggplot(big_cats, aes(body_length_cm, weight_kg, colour = species)) +
+ggplot(cats, aes(body_length_cm, weight_kg, colour = species)) +
   geom_point() +
   labs(
     title = "Body length and weight of big cats",
@@ -216,21 +216,21 @@ ggplot(big_cats, aes(body_length_cm, weight_kg, colour = species)) +
   )
 
 # Different point sizes:
-ggplot(big_cats, aes(body_length_cm, weight_kg, colour = species, size = body_length_cm)) +
+ggplot(cats, aes(body_length_cm, weight_kg, colour = species, size = body_length_cm)) +
   geom_point()
 
 # Different point shapes:
-ggplot(big_cats, aes(body_length_cm, weight_kg, shape = sex)) +
+ggplot(cats, aes(body_length_cm, weight_kg, shape = sex)) +
   geom_point()
 
 # Transparency:
 # Alpha ranges from 0 (completely transparent) to 1 (completely opaque).
 # This is especially useful when many observations overlap:
-ggplot(big_cats, aes(body_length_cm, weight_kg, colour = species, shape = sex)) +
+ggplot(cats, aes(body_length_cm, weight_kg, colour = species, shape = sex)) +
   geom_point(alpha = 0.5, size = 2)
 
 # Add a linear trend line:
-ggplot(big_cats, aes(x = body_length_cm,
+ggplot(cats, aes(x = body_length_cm,
                      y = weight_kg,
                      colour = species)) +
   geom_point(alpha = 0.6) +
@@ -245,7 +245,7 @@ ggplot(big_cats, aes(x = body_length_cm,
 # Hides the confidence interval around the fitted line.
 
 # Save the plot as an object:
-p_scatter <- ggplot(big_cats,
+p_scatter <- ggplot(cats,
                     aes(x = body_length_cm,
                         y = weight_kg,
                         colour = species)) +
@@ -411,7 +411,7 @@ ggplotly(p_scatter)
 # The tooltip shows the aesthetics by default (x, y, color).
 # With "text" we decide ourselves what is shown when hovering.
 # <br> means a new line in the tooltip.
-p_tooltip <- big_cats %>%
+p_tooltip <- cats %>%
   ggplot(aes(body_length_cm, weight_kg, color = species,
              text = str_c("Species: ", species,
                           "<br>Sex: ", sex,
@@ -427,3 +427,32 @@ ggplotly(p_tooltip, tooltip = "text")
 
 # Facets work as well!
 ggplotly(p_scatter + facet_wrap(~ species, scales = "free"))
+
+# 3D plots ----
+# plotly also has its own syntax with plot_ly().
+# It is not needed for most cases, but some plot types are only available here,
+# for example 3D plots. The ~ means "take this column from the data".
+cats %>%
+  plot_ly(
+    x = ~body_length_cm,
+    y = ~weight_kg,
+    z = ~temp_c,
+    color = ~species,
+    type = "scatter3d",
+    mode = "markers",
+    marker = list(size = 3)
+  )
+
+
+# EXERCISE: RAPTORS ----
+raptors <- read_csv("workshop_data/exercise_raptors_individuals.csv")
+
+# 1. Boxplot of weight_g for each species, fill by sex.
+#    What is different from the big cats?
+#
+# 2. Scatterplot of wing_length_mm and weight_g, coloured by species,
+#    with a linear trend line.
+#
+# 3. Split the scatterplot into panels with facet_wrap().
+#
+# 4. Add labels and a theme, then save the plot with ggsave().

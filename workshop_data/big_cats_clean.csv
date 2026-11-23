@@ -33,7 +33,7 @@ record_id,site_id,habitat,timestamp,species,sex,age_class,body_length_cm,weight_
 34,S03,tropical forest,2023-02-04T06:32:00Z,Leopard,F,adult,136,44.7,20.2,2023-02-04,2023,2
 35,S03,tropical forest,2023-02-04T23:53:00Z,Clouded leopard,M,adult,NA,18.2,20.5,2023-02-04,2023,2
 36,S02,mountain steppe,2023-02-05T00:04:00Z,Pallas's cat,M,adult,55,3.4,NA,2023-02-05,2023,2
-37,S05,temperate forest,2023-02-05T04:41:00Z,Eurasian lynx,F,adult,92,NA,-5.8,2023-02-05,2023,2
+37,S05,temperate forest,2023-02-05T04:41:00Z,Eurasian lynx,F,adult,92,4500,-5.8,2023-02-05,2023,2
 38,S06,temperate forest,2023-02-06T20:52:00Z,Leopard,M,adult,166,76.6,3.6,2023-02-06,2023,2
 39,S02,mountain steppe,2023-02-07T21:17:00Z,Snow leopard,F,adult,106,37.4,-7.6,2023-02-07,2023,2
 40,S02,mountain steppe,2023-02-08T06:02:00Z,Snow leopard,F,adult,108,36.5,-11.1,2023-02-08,2023,2
@@ -83,7 +83,7 @@ record_id,site_id,habitat,timestamp,species,sex,age_class,body_length_cm,weight_
 85,S03,tropical forest,2023-03-22T06:44:00Z,Leopard,F,adult,128,39.2,23,2023-03-22,2023,3
 86,S04,tropical forest,2023-03-22T20:13:00Z,Clouded leopard,M,adult,NA,20.3,19.9,2023-03-22,2023,3
 87,S03,tropical forest,2023-03-26T04:49:00Z,Leopard,F,subadult,110,21,22.8,2023-03-26,2023,3
-88,S06,temperate forest,2023-03-28T02:43:00Z,Leopard,M,adult,110.00000000000001,49.3,4.5,2023-03-28,2023,3
+88,S06,temperate forest,2023-03-28T02:43:00Z,Leopard,M,adult,140,49.3,4.5,2023-03-28,2023,3
 89,S05,temperate forest,2023-03-28T06:47:00Z,Eurasian lynx,M,adult,108,NA,-2.7,2023-03-28,2023,3
 90,S06,temperate forest,2023-03-28T22:05:00Z,Eurasian lynx,M,subadult,98,15.9,1.2,2023-03-28,2023,3
 91,S05,temperate forest,2023-04-01T05:43:00Z,Eurasian lynx,M,adult,101,16.9,2.9,2023-04-01,2023,4
@@ -134,7 +134,7 @@ record_id,site_id,habitat,timestamp,species,sex,age_class,body_length_cm,weight_
 139,S02,mountain steppe,2023-07-21T23:53:00Z,Pallas's cat,M,adult,58,4,16.5,2023-07-21,2023,7
 140,S05,temperate forest,2023-07-23T00:20:00Z,Eurasian lynx,F,adult,102,NA,13.9,2023-07-23,2023,7
 141,S01,mountain steppe,2023-07-26T03:54:00Z,Snow leopard,F,adult,99,25.7,12.4,2023-07-26,2023,7
-142,S02,mountain steppe,2023-07-26T23:23:00Z,Snow leopard,F,adult,108,NA,11.3,2023-07-26,2023,7
+142,S02,mountain steppe,2023-07-26T23:23:00Z,Snow leopard,F,adult,108,450,11.3,2023-07-26,2023,7
 143,S04,tropical forest,2023-07-27T06:42:00Z,Clouded leopard,M,adult,98,19.8,31.6,2023-07-27,2023,7
 144,S05,temperate forest,2023-08-02T06:42:00Z,Eurasian lynx,M,adult,116,26.6,15,2023-08-02,2023,8
 145,S06,temperate forest,2023-08-03T01:51:00Z,Leopard,F,adult,138,NA,23.1,2023-08-03,2023,8
@@ -178,7 +178,7 @@ record_id,site_id,habitat,timestamp,species,sex,age_class,body_length_cm,weight_
 187,S02,mountain steppe,2023-10-26T06:43:00Z,Pallas's cat,F,adult,51,2.9,-3.3,2023-10-26,2023,10
 188,S02,mountain steppe,2023-10-27T00:08:00Z,Pallas's cat,F,adult,52,2.9,6.7,2023-10-27,2023,10
 189,S02,mountain steppe,2023-10-27T01:26:00Z,Pallas's cat,F,adult,52,2.8,NA,2023-10-27,2023,10
-190,S02,mountain steppe,2023-10-28T21:25:00Z,Pallas's cat,F,adult,110,3.2,NA,2023-10-28,2023,10
+190,S02,mountain steppe,2023-10-28T21:25:00Z,Pallas's cat,F,adult,54,3.2,NA,2023-10-28,2023,10
 191,S06,temperate forest,2023-11-01T02:33:00Z,Leopard,F,subadult,132,NA,8.6,2023-11-01,2023,11
 192,S04,tropical forest,2023-11-01T05:08:00Z,Leopard,F,subadult,112,23.8,32.2,2023-11-01,2023,11
 193,S02,mountain steppe,2023-11-02T22:08:00Z,Pallas's cat,F,adult,63,5.2,-3.9,2023-11-02,2023,11
