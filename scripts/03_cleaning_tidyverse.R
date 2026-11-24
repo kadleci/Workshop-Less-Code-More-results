@@ -132,6 +132,7 @@ unique(cats$sex)
 # Exercise: how can you get the same as a table with a pipeline?
 # Hint: distinct() or count()
 
+
 # Option 1: case_when(), every variant written out by hand.
 # Clear to read, but we must know all the variants in advance.
 cats %>%
@@ -264,31 +265,13 @@ glimpse(cats)
 # Number of NA values in each column
 cats %>% summarise(across(everything(), ~ sum(is.na(.x))))
 
-## 12. Long and wide format ----
+## 12. Save the clean data ----
+# What else do we need to do before saving? What have we forgotten?
 
-# Number of captures per species and month, in long format:
-# one row per combination
-captures_long <- cats %>%
-  filter(!is.na(timestamp)) %>%
-  count(species, month)
-
-captures_long
-
-# Wide format: one column per month, easier to read as a table
-captures_wide <- captures_long %>%
-  pivot_wider(names_from = month, values_from = n, values_fill = 0)
-
-captures_wide
-
-# And back to long format, which ggplot needs
-captures_wide %>%
-  pivot_longer(-species, names_to = "month", values_to = "n")
-
-## 13. Save the clean data ----
 
 write_csv(cats, "workshop_data/big_cats_clean.csv")
 
-## 14. Task: clean the raptor data ----
+## 13. Task: clean the raptor data ----
 
 # File: workshop_data/exercise_raptors_raw.csv
 # Go step by step and check the result after each step.
